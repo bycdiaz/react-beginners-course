@@ -21,9 +21,14 @@ class App extends React.Component {
      });
   }
 
+  componentDidUpdate() {
+    localStorage.setItem(this.props.match.params.storeId, JSON.stringify(this.state.order));
+  }
+
   componentWillUnmount() {
     base.removeBinding(this.ref);
   }
+
 
   addFish = fish => {
     // 1. Take a copy of the existing state
